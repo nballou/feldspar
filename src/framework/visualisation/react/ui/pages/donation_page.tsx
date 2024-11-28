@@ -27,7 +27,7 @@ export const DonationPage = (props: Props): JSX.Element => {
       return <FileInput {...body} {...context} />
     }
     if (isPropsUIPromptProgress(body)) {
-      return <Progress {...body} {...context} />
+      return <Progress description={''} message={''} {...(body as object)} {...context} />
     }
     if (isPropsUIPromptConfirm(body)) {
       return <Confirm {...body} {...context} />

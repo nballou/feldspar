@@ -13,12 +13,14 @@ class CommandUIRender:
 
 class CommandSystemDonate:
     __slots__ = "key", "json_string"
-
+    
     def __init__(self, key, json_string):
+        print("instantiating CommandSystemDonate")
         self.key = key
         self.json_string = json_string
 
     def toDict(self):
+        print("dictifying CommandSystemDonate")
         dict = {}
         dict["__type__"] = "CommandSystemDonate"
         dict["key"] = self.key

@@ -8,16 +8,11 @@ class ScriptWrapper(Generator):
         self.script = script
 
     def send(self, data):
-        try:
-            command = self.script.send(data)
-        except StopIteration:
-            return CommandSystemExit(0, "End of script").toDict()
-        else:
-            return command.toDict()
+        command = self.script.send(data)
+        return command.toDict()
 
     def throw(self, type=None, value=None, traceback=None):
         raise StopIteration
-
 
 def start(sessionId):
     script = process(sessionId)

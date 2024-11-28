@@ -1,5 +1,5 @@
 import { CommandHandler, ProcessingEngine } from '../types/modules'
-import { CommandSystemEvent, isCommand, Response } from '../types/commands'
+import { CommandSystemDonate, CommandUIRender, isCommand, Response } from '../types/commands'
 
 export default class WorkerProcessingEngine implements ProcessingEngine {
   sessionId: String
@@ -21,10 +21,14 @@ export default class WorkerProcessingEngine implements ProcessingEngine {
       )
       this.handleEvent(event)
     }
+
+    this.trackUserStart(sessionId)
   }
 
-  sendSystemEvent (name: string): void {
-    const command: CommandSystemEvent = { __type__: 'CommandSystemEvent', name }
+  trackUserStart (sessionId: string): void {
+    const key = `${sessionId}-tracking`
+    const jsonString = JSON.stringify({ message: 'user started' })
+    const command: CommandSystemDonate = { __type__: 'CommandSystemDonate', key, json_string: jsonString }
     this.commandHandler.onCommand(command).then(
       () => {},
       () => {}
@@ -56,12 +60,10 @@ export default class WorkerProcessingEngine implements ProcessingEngine {
     console.log('[WorkerProcessingEngine] started')
 
     const waitForInitialization: Promise<void> = this.waitForInitialization()
+    const waitForSplashScreen: Promise<void> = this.waitForSplashScreen()
 
-    waitForInitialization.then(
-      () => {
-        this.sendSystemEvent('initialized')
-        this.firstRunCycle()
-      },
+    Promise.all([waitForInitialization, waitForSplashScreen]).then(
+      () => { this.firstRunCycle() },
       () => {}
     )
   }
@@ -71,6 +73,25 @@ export default class WorkerProcessingEngine implements ProcessingEngine {
       this.resolveInitialized = resolve
       this.worker.postMessage({ eventType: 'initialise' })
     })
+  }
+
+  async waitForSplashScreen (): Promise<void> {
+    console.log("DEBUG: Waiting for splash screen")
+    return await new Promise<void>((resolve) => {
+      this.resolveContinue = resolve
+      this.renderSplashScreen()
+    })
+  }
+
+  renderSplashScreen (): void {
+    console.log("DEBUG: Trying to render splash screen")
+    const command: CommandUIRender = { __type__: 'CommandUIRender', page: { __type__: 'PropsUIPageSplashScreen' } }
+    if (isCommand(command)) {
+      this.commandHandler.onCommand(command).then(
+        (_response) => this.resolveContinue(),
+        () => {}
+      )
+    }
   }
 
   firstRunCycle (): void {
