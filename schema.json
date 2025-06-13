@@ -1,0 +1,1569 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "Ads and data": {
+            "type": "object",
+            "properties": {
+                "Instant Form Ads Responses": {
+                    "type": "object",
+                    "properties": {
+                        "ResponsesList": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "ResponsesList"
+                    ]
+                },
+                "Off TikTok Activity": {
+                    "type": "object",
+                    "properties": {
+                        "OffTikTokActivityDataList": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "OffTikTokActivityDataList"
+                    ]
+                }
+            },
+            "required": [
+                "Instant Form Ads Responses",
+                "Off TikTok Activity"
+            ]
+        },
+        "App Settings": {
+            "type": "object",
+            "properties": {
+                "Block List": {
+                    "type": "object",
+                    "properties": {
+                        "App": {
+                            "type": "integer"
+                        },
+                        "BlockList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Date": {
+                                        "type": "string"
+                                    },
+                                    "UserName": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Date",
+                                    "UserName"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "App",
+                        "BlockList"
+                    ]
+                },
+                "Settings": {
+                    "type": "object",
+                    "properties": {
+                        "App": {
+                            "type": "integer"
+                        },
+                        "SettingsMap": {
+                            "type": "object",
+                            "properties": {
+                                "Allow DownLoad": {
+                                    "type": "string"
+                                },
+                                "Allow Others to Find Me": {
+                                    "type": "string"
+                                },
+                                "App Language": {
+                                    "type": "string"
+                                },
+                                "Content Preferences": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Keyword filters for videos in Following feed": {
+                                            "type": "array"
+                                        },
+                                        "Keyword filters for videos in For You feed": {
+                                            "type": "array"
+                                        },
+                                        "Video Languages Preferences": {
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "Keyword filters for videos in Following feed",
+                                        "Keyword filters for videos in For You feed",
+                                        "Video Languages Preferences"
+                                    ]
+                                },
+                                "Family Content Preferences": {
+                                    "type": "object"
+                                },
+                                "Filter Comments": {
+                                    "type": "string"
+                                },
+                                "Interests": {
+                                    "type": "string"
+                                },
+                                "Personalized Ads": {
+                                    "type": "string"
+                                },
+                                "Private Account": {
+                                    "type": "string"
+                                },
+                                "Push Notification": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Desktop notification": {
+                                            "type": "string"
+                                        },
+                                        "New Comments on My Video": {
+                                            "type": "string"
+                                        },
+                                        "New Fans": {
+                                            "type": "string"
+                                        },
+                                        "New Likes on My Video": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "Desktop notification",
+                                        "New Comments on My Video",
+                                        "New Fans",
+                                        "New Likes on My Video"
+                                    ]
+                                },
+                                "Suggest your account to Facebook friends": {
+                                    "type": "string"
+                                },
+                                "Suggest your account to contacts": {
+                                    "type": "string"
+                                },
+                                "Suggest your account to people who open or send links to you": {
+                                    "type": "string"
+                                },
+                                "Web Language": {
+                                    "type": "string"
+                                },
+                                "Who Can Duet With Me": {
+                                    "type": "string"
+                                },
+                                "Who Can Post Comments": {
+                                    "type": "string"
+                                },
+                                "Who Can Send Me Message": {
+                                    "type": "string"
+                                },
+                                "Who Can Stitch with your videos": {
+                                    "type": "string"
+                                },
+                                "Who Can View Videos I Liked": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "Allow DownLoad",
+                                "Allow Others to Find Me",
+                                "App Language",
+                                "Content Preferences",
+                                "Family Content Preferences",
+                                "Filter Comments",
+                                "Interests",
+                                "Personalized Ads",
+                                "Private Account",
+                                "Push Notification",
+                                "Suggest your account to Facebook friends",
+                                "Suggest your account to contacts",
+                                "Suggest your account to people who open or send links to you",
+                                "Web Language",
+                                "Who Can Duet With Me",
+                                "Who Can Post Comments",
+                                "Who Can Send Me Message",
+                                "Who Can Stitch with your videos",
+                                "Who Can View Videos I Liked"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "App",
+                        "SettingsMap"
+                    ]
+                }
+            },
+            "required": [
+                "Block List",
+                "Settings"
+            ]
+        },
+        "Comment": {
+            "type": "object",
+            "properties": {
+                "Comments": {
+                    "type": "object",
+                    "properties": {
+                        "App": {
+                            "type": "integer"
+                        },
+                        "CommentsList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string"
+                                    },
+                                    "comment": {
+                                        "type": "string"
+                                    },
+                                    "photo": {
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "comment",
+                                    "date",
+                                    "photo",
+                                    "url"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "App",
+                        "CommentsList"
+                    ]
+                }
+            },
+            "required": [
+                "Comments"
+            ]
+        },
+        "Direct Message": {
+            "type": "object",
+            "properties": {
+                "Direct Messages": {
+                    "type": "object",
+                    "properties": {
+                        "ChatHistory": {
+                            "type": "object",
+                            "properties": {
+                                "Chat History with anoukkocken:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                },
+                                "Chat History with floor.kock:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                },
+                                "Chat History with iezmon:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                },
+                                "Chat History with kimvansantvoort1:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                },
+                                "Chat History with liekejagers0:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                },
+                                "Chat History with llisa.b6:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                },
+                                "Chat History with lotte.eenink:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                },
+                                "Chat History with niki.oe:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                },
+                                "Chat History with ninasmits:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                },
+                                "Chat History with shakeel1036:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                },
+                                "Chat History with svenj.aa:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                },
+                                "Chat History with user591931123:": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Date": {
+                                                "type": "string"
+                                            },
+                                            "From": {
+                                                "type": "string"
+                                            },
+                                            "Content": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Content",
+                                            "Date",
+                                            "From"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "Chat History with anoukkocken:",
+                                "Chat History with floor.kock:",
+                                "Chat History with iezmon:",
+                                "Chat History with kimvansantvoort1:",
+                                "Chat History with liekejagers0:",
+                                "Chat History with llisa.b6:",
+                                "Chat History with lotte.eenink:",
+                                "Chat History with niki.oe:",
+                                "Chat History with ninasmits:",
+                                "Chat History with shakeel1036:",
+                                "Chat History with svenj.aa:",
+                                "Chat History with user591931123:"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "ChatHistory"
+                    ]
+                }
+            },
+            "required": [
+                "Direct Messages"
+            ]
+        },
+        "Income Plus Wallet Transactions": {
+            "type": "object",
+            "properties": {
+                "Transaction History": {
+                    "type": "object",
+                    "properties": {
+                        "TransactionsList": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "TransactionsList"
+                    ]
+                }
+            },
+            "required": [
+                "Transaction History"
+            ]
+        },
+        "Location Review": {
+            "type": "object",
+            "properties": {
+                "Location Reviews": {
+                    "type": "object",
+                    "properties": {
+                        "ReviewsList": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "ReviewsList"
+                    ]
+                }
+            },
+            "required": [
+                "Location Reviews"
+            ]
+        },
+        "Post": {
+            "type": "object",
+            "properties": {
+                "Posts": {
+                    "type": "object",
+                    "properties": {
+                        "VideoList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Date": {
+                                        "type": "string"
+                                    },
+                                    "Link": {
+                                        "type": "string"
+                                    },
+                                    "Likes": {
+                                        "type": "string"
+                                    },
+                                    "WhoCanView": {
+                                        "type": "string"
+                                    },
+                                    "AllowComments": {
+                                        "type": "string"
+                                    },
+                                    "AllowStitches": {
+                                        "type": "string"
+                                    },
+                                    "AllowDuets": {
+                                        "type": "string"
+                                    },
+                                    "AllowStickers": {
+                                        "type": "string"
+                                    },
+                                    "AllowSharingToStory": {
+                                        "type": "string"
+                                    },
+                                    "ContentDisclosure": {
+                                        "type": "string"
+                                    },
+                                    "AIGeneratedContent": {
+                                        "type": "string"
+                                    },
+                                    "Sound": {
+                                        "type": "string"
+                                    },
+                                    "Location": {
+                                        "type": "string"
+                                    },
+                                    "Title": {
+                                        "type": "string"
+                                    },
+                                    "AddYoursText": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "AIGeneratedContent",
+                                    "AddYoursText",
+                                    "AllowComments",
+                                    "AllowDuets",
+                                    "AllowSharingToStory",
+                                    "AllowStickers",
+                                    "AllowStitches",
+                                    "ContentDisclosure",
+                                    "Date",
+                                    "Likes",
+                                    "Link",
+                                    "Location",
+                                    "Sound",
+                                    "Title",
+                                    "WhoCanView"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "VideoList"
+                    ]
+                },
+                "Recently Deleted Posts": {
+                    "type": "object",
+                    "properties": {
+                        "PostList": {
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "PostList"
+                    ]
+                }
+            },
+            "required": [
+                "Posts",
+                "Recently Deleted Posts"
+            ]
+        },
+        "Profile": {
+            "type": "object",
+            "properties": {
+                "AI-Moji": {
+                    "type": "object",
+                    "properties": {
+                        "CreateDate": {
+                            "type": "string"
+                        },
+                        "AIMojiList": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "AIMojiList",
+                        "CreateDate"
+                    ]
+                },
+                "Autofill": {
+                    "type": "object",
+                    "properties": {
+                        "PhoneNumber": {
+                            "type": "string"
+                        },
+                        "Email": {
+                            "type": "string"
+                        },
+                        "FirstName": {
+                            "type": "string"
+                        },
+                        "LastName": {
+                            "type": "string"
+                        },
+                        "Address": {
+                            "type": "string"
+                        },
+                        "ZipCode": {
+                            "type": "string"
+                        },
+                        "Unit": {
+                            "type": "string"
+                        },
+                        "City": {
+                            "type": "string"
+                        },
+                        "State": {
+                            "type": "string"
+                        },
+                        "Country": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Address",
+                        "City",
+                        "Country",
+                        "Email",
+                        "FirstName",
+                        "LastName",
+                        "PhoneNumber",
+                        "State",
+                        "Unit",
+                        "ZipCode"
+                    ]
+                },
+                "Profile Info": {
+                    "type": "object",
+                    "properties": {
+                        "App": {
+                            "type": "integer"
+                        },
+                        "ProfileMap": {
+                            "type": "object",
+                            "properties": {
+                                "PlatformInfo": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Description": {
+                                                "type": "string"
+                                            },
+                                            "Name": {
+                                                "type": "string"
+                                            },
+                                            "Platform": {
+                                                "type": "string"
+                                            },
+                                            "Profile Photo": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Description",
+                                            "Name",
+                                            "Platform",
+                                            "Profile Photo"
+                                        ]
+                                    }
+                                },
+                                "bioDescription": {
+                                    "type": "string"
+                                },
+                                "birthDate": {
+                                    "type": "string"
+                                },
+                                "emailAddress": {
+                                    "type": "string"
+                                },
+                                "likesReceived": {
+                                    "type": "string"
+                                },
+                                "profilePhoto": {
+                                    "type": "string"
+                                },
+                                "profileVideo": {
+                                    "type": "string"
+                                },
+                                "telephoneNumber": {
+                                    "type": "string"
+                                },
+                                "userName": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "PlatformInfo",
+                                "bioDescription",
+                                "birthDate",
+                                "emailAddress",
+                                "likesReceived",
+                                "profilePhoto",
+                                "profileVideo",
+                                "telephoneNumber",
+                                "userName"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "App",
+                        "ProfileMap"
+                    ]
+                }
+            },
+            "required": [
+                "AI-Moji",
+                "Autofill",
+                "Profile Info"
+            ]
+        },
+        "TikTok Shop": {
+            "type": "object",
+            "properties": {
+                "Communication With Shops": {
+                    "type": "object",
+                    "properties": {
+                        "CommunicationHistories": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "CommunicationHistories"
+                    ]
+                },
+                "Current Payment Information": {
+                    "type": "object",
+                    "properties": {
+                        "PayCard": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "PayCard"
+                    ]
+                },
+                "Customer Support History": {
+                    "type": "object",
+                    "properties": {
+                        "CustomerSupportHistories": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "CustomerSupportHistories"
+                    ]
+                },
+                "Order Dispute History": {
+                    "type": "object",
+                    "properties": {
+                        "OrderDisputeHistories": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "OrderDisputeHistories"
+                    ]
+                },
+                "Order History": {
+                    "type": "object",
+                    "properties": {
+                        "OrderHistories": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "OrderHistories"
+                    ]
+                },
+                "Product Browsing History": {
+                    "type": "object",
+                    "properties": {
+                        "ProductBrowsingHistories": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "ProductBrowsingHistories"
+                    ]
+                },
+                "Product Reviews": {
+                    "type": "object",
+                    "properties": {
+                        "ProductReviewHistories": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "ProductReviewHistories"
+                    ]
+                },
+                "Returns and Refunds History": {
+                    "type": "object",
+                    "properties": {
+                        "ReturnAndRefundHistories": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "ReturnAndRefundHistories"
+                    ]
+                },
+                "Saved Address Information": {
+                    "type": "object",
+                    "properties": {
+                        "SavedAddress": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "SavedAddress"
+                    ]
+                },
+                "Shopping Cart List": {
+                    "type": "object",
+                    "properties": {
+                        "ShoppingCart": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "ShoppingCart"
+                    ]
+                },
+                "Vouchers": {
+                    "type": "object",
+                    "properties": {
+                        "Vouchers": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "Vouchers"
+                    ]
+                }
+            },
+            "required": [
+                "Communication With Shops",
+                "Current Payment Information",
+                "Customer Support History",
+                "Order Dispute History",
+                "Order History",
+                "Product Browsing History",
+                "Product Reviews",
+                "Returns and Refunds History",
+                "Saved Address Information",
+                "Shopping Cart List",
+                "Vouchers"
+            ]
+        },
+        "Tiktok Live": {
+            "type": "object",
+            "properties": {
+                "Go Live History": {
+                    "type": "object",
+                    "properties": {
+                        "GoLiveList": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "GoLiveList"
+                    ]
+                },
+                "Go Live Settings": {
+                    "type": "object",
+                    "properties": {
+                        "SettingsMap": {
+                            "type": "object",
+                            "properties": {
+                                "Allow agencies to find and invite you": {
+                                    "type": "string"
+                                },
+                                "Allow others to invite you to co-host in LIVE": {
+                                    "type": "string"
+                                },
+                                "Allow people to send and receive comments during your LIVE": {
+                                    "type": "string"
+                                },
+                                "Allow suggested LIVE hosts to invite you to co-host in LIVE": {
+                                    "type": "string"
+                                },
+                                "Allow viewers to request to go LIVE with you": {
+                                    "type": "string"
+                                },
+                                "Allow viewers to see and send questions and answers in your LIVE": {
+                                    "type": "string"
+                                },
+                                "Allow viewers to send you gifts during your LIVE": {
+                                    "type": "string"
+                                },
+                                "Hide comments that contain the following keywords from your LIVE": {
+                                    "type": "array"
+                                },
+                                "Hide potential spam or offensive comments from your LIVE": {
+                                    "type": "string"
+                                },
+                                "People you assigned to moderate your LIVE": {
+                                    "type": "array"
+                                },
+                                "Show your username and gift information in features with ranking lists": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "Allow agencies to find and invite you",
+                                "Allow others to invite you to co-host in LIVE",
+                                "Allow people to send and receive comments during your LIVE",
+                                "Allow suggested LIVE hosts to invite you to co-host in LIVE",
+                                "Allow viewers to request to go LIVE with you",
+                                "Allow viewers to see and send questions and answers in your LIVE",
+                                "Allow viewers to send you gifts during your LIVE",
+                                "Hide comments that contain the following keywords from your LIVE",
+                                "Hide potential spam or offensive comments from your LIVE",
+                                "People you assigned to moderate your LIVE",
+                                "Show your username and gift information in features with ranking lists"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "SettingsMap"
+                    ]
+                },
+                "Watch Live History": {
+                    "type": "object",
+                    "properties": {
+                        "WatchLiveMap": {
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "WatchLiveMap"
+                    ]
+                },
+                "Watch Live Settings": {
+                    "type": "object",
+                    "properties": {
+                        "WatchLiveSettingsMap": {
+                            "type": "object",
+                            "properties": {
+                                "app": {
+                                    "type": "string"
+                                },
+                                "web": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "app",
+                                "web"
+                            ]
+                        },
+                        "MostRecentModificationTimeInApp": {
+                            "type": "string"
+                        },
+                        "MostRecentModificationTimeInWeb": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "MostRecentModificationTimeInApp",
+                        "MostRecentModificationTimeInWeb",
+                        "WatchLiveSettingsMap"
+                    ]
+                }
+            },
+            "required": [
+                "Go Live History",
+                "Go Live Settings",
+                "Watch Live History",
+                "Watch Live Settings"
+            ]
+        },
+        "Your Activity": {
+            "type": "object",
+            "properties": {
+                "Favorite Effects": {
+                    "type": "object",
+                    "properties": {
+                        "FavoriteEffectsList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Date": {
+                                        "type": "string"
+                                    },
+                                    "EffectLink": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Date",
+                                    "EffectLink"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "FavoriteEffectsList"
+                    ]
+                },
+                "Favorite Hashtags": {
+                    "type": "object",
+                    "properties": {
+                        "FavoriteHashtagList": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "FavoriteHashtagList"
+                    ]
+                },
+                "Favorite Sounds": {
+                    "type": "object",
+                    "properties": {
+                        "FavoriteSoundList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Date": {
+                                        "type": "string"
+                                    },
+                                    "Link": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Date",
+                                    "Link"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "FavoriteSoundList"
+                    ]
+                },
+                "Favorite Videos": {
+                    "type": "object",
+                    "properties": {
+                        "App": {
+                            "type": "integer"
+                        },
+                        "FavoriteVideoList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Date": {
+                                        "type": "string"
+                                    },
+                                    "Link": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Date",
+                                    "Link"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "App",
+                        "FavoriteVideoList"
+                    ]
+                },
+                "Follower": {
+                    "type": "object",
+                    "properties": {
+                        "App": {
+                            "type": "integer"
+                        },
+                        "IsFastLane": {
+                            "type": "boolean"
+                        },
+                        "FansList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Date": {
+                                        "type": "string"
+                                    },
+                                    "UserName": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Date",
+                                    "UserName"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "App",
+                        "FansList",
+                        "IsFastLane"
+                    ]
+                },
+                "Following": {
+                    "type": "object",
+                    "properties": {
+                        "App": {
+                            "type": "integer"
+                        },
+                        "IsFastLane": {
+                            "type": "boolean"
+                        },
+                        "Following": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Date": {
+                                        "type": "string"
+                                    },
+                                    "UserName": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Date",
+                                    "UserName"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "App",
+                        "Following",
+                        "IsFastLane"
+                    ]
+                },
+                "Hashtag": {
+                    "type": "object",
+                    "properties": {
+                        "HashtagList": {
+                            "type": "null"
+                        }
+                    },
+                    "required": [
+                        "HashtagList"
+                    ]
+                },
+                "Like List": {
+                    "type": "object",
+                    "properties": {
+                        "App": {
+                            "type": "integer"
+                        },
+                        "ItemFavoriteList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string"
+                                    },
+                                    "link": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "date",
+                                    "link"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "App",
+                        "ItemFavoriteList"
+                    ]
+                },
+                "Login History": {
+                    "type": "object",
+                    "properties": {
+                        "LoginHistoryList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Date": {
+                                        "type": "string"
+                                    },
+                                    "IP": {
+                                        "type": "string"
+                                    },
+                                    "DeviceModel": {
+                                        "type": "string"
+                                    },
+                                    "DeviceSystem": {
+                                        "type": "string"
+                                    },
+                                    "NetworkType": {
+                                        "type": "string"
+                                    },
+                                    "Carrier": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Carrier",
+                                    "Date",
+                                    "DeviceModel",
+                                    "DeviceSystem",
+                                    "IP",
+                                    "NetworkType"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "LoginHistoryList"
+                    ]
+                },
+                "Most Recent Location Data": {
+                    "type": "object",
+                    "properties": {
+                        "LocationData": {
+                            "type": "object",
+                            "properties": {
+                                "Date": {
+                                    "type": "string"
+                                },
+                                "GpsData": {
+                                    "type": "string"
+                                },
+                                "LastRegion": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "Date",
+                                "GpsData",
+                                "LastRegion"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "LocationData"
+                    ]
+                },
+                "Purchases": {
+                    "type": "object",
+                    "properties": {
+                        "SendGifts": {
+                            "type": "object",
+                            "properties": {
+                                "SendGifts": {
+                                    "type": "null"
+                                }
+                            },
+                            "required": [
+                                "SendGifts"
+                            ]
+                        },
+                        "BuyGifts": {
+                            "type": "object",
+                            "properties": {
+                                "BuyGifts": {
+                                    "type": "null"
+                                }
+                            },
+                            "required": [
+                                "BuyGifts"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "BuyGifts",
+                        "SendGifts"
+                    ]
+                },
+                "Searches": {
+                    "type": "object",
+                    "properties": {
+                        "SearchList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Date": {
+                                        "type": "string"
+                                    },
+                                    "SearchTerm": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Date",
+                                    "SearchTerm"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "SearchList"
+                    ]
+                },
+                "Share History": {
+                    "type": "object",
+                    "properties": {
+                        "ShareHistoryList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Date": {
+                                        "type": "string"
+                                    },
+                                    "SharedContent": {
+                                        "type": "string"
+                                    },
+                                    "Link": {
+                                        "type": "string"
+                                    },
+                                    "Method": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Date",
+                                    "Link",
+                                    "Method",
+                                    "SharedContent"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "ShareHistoryList"
+                    ]
+                },
+                "Status": {
+                    "type": "object",
+                    "properties": {
+                        "Status List": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Resolution": {
+                                        "type": "string"
+                                    },
+                                    "App Version": {
+                                        "type": "string"
+                                    },
+                                    "IDFA": {
+                                        "type": "string"
+                                    },
+                                    "GAID": {
+                                        "type": "string"
+                                    },
+                                    "Android ID": {
+                                        "type": "string"
+                                    },
+                                    "IDFV": {
+                                        "type": "string"
+                                    },
+                                    "Web ID": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Android ID",
+                                    "App Version",
+                                    "GAID",
+                                    "IDFA",
+                                    "IDFV",
+                                    "Resolution",
+                                    "Web ID"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "Status List"
+                    ]
+                },
+                "Watch History": {
+                    "type": "object",
+                    "properties": {
+                        "VideoList": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "Date": {
+                                        "type": "string"
+                                    },
+                                    "Link": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Date",
+                                    "Link"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "VideoList"
+                    ]
+                }
+            },
+            "required": [
+                "Favorite Effects",
+                "Favorite Hashtags",
+                "Favorite Sounds",
+                "Favorite Videos",
+                "Follower",
+                "Following",
+                "Hashtag",
+                "Like List",
+                "Login History",
+                "Most Recent Location Data",
+                "Purchases",
+                "Searches",
+                "Share History",
+                "Status",
+                "Watch History"
+            ]
+        }
+    },
+    "required": [
+        "Ads and data",
+        "App Settings",
+        "Comment",
+        "Direct Message",
+        "Income Plus Wallet Transactions",
+        "Location Review",
+        "Post",
+        "Profile",
+        "TikTok Shop",
+        "Tiktok Live",
+        "Your Activity"
+    ]
+}

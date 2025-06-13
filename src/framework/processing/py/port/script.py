@@ -63,7 +63,9 @@ def glob_json(zipfile, pattern):
             yield json.load(f)
 
 def load_json(path):
+    print(f"Loading JSON file from path: {path}")
     with open(path) as f:
+        print(f"Successfully opened JSON file: {path}")
         return json.load(f)
 
 # =====================
@@ -78,17 +80,31 @@ def extract_file(zipfile_ref, filename):
         return "invalid"
 
 def extract_id(jsonfile):
-    try:
-        username = jsonfile.get('Profile', {}).get('Profile Information', {}).get('ProfileMap').get('userName', [])
-        username = hash_username(username)
+    print(">>> in extract_id(), jsonfile type:", type(jsonfile), "keys (if dict):", (list(jsonfile.keys()) if isinstance(jsonfile, dict) else None))
+    # First path:
+    profile = jsonfile.get('Profile', {}) or {}
+    profile_info = profile.get('Profile Information', {}) or {}
+    profile_map = profile_info.get('ProfileMap', {}) or {}
+    username = profile_map.get('userName')
+    print("After first path, username =", repr(username))
 
-    except Exception as e:
-        print(f"Error extracting ID: {e}")
+    if not username:
+        alt_info = profile.get('Profile Info', {}) or {}
+        alt_map = alt_info.get('ProfileMap', {}) or {}
+        username = alt_map.get('userName')
+        print("After second path, username =", repr(username))
+
+    if not username:
+        print("Error extracting ID: Username not found in either 'Profile Information' or 'Profile Info'.")
+    else:
+        print("Found username:", username)
+    
+    hashed_username = hash_username(username) if username else None
 
     return ExtractionResult(
         "id",
-        props.Translatable({"en": "Your Random ID", "nl": "Your Random ID"}),
-        pd.DataFrame([username])
+        props.Translatable({"en": "Unique Identifier (note: deleting this will invalidate your submission)", "nl": "Unique Identifier (note: deleting this will invalidate your submission)"}),
+        pd.DataFrame([hashed_username])
     )
 
 def extract_likes(jsonfile):
@@ -97,13 +113,14 @@ def extract_likes(jsonfile):
     print('Trying to extract likes...')
 
     try:
-
         # Extract the "Like List"
-        item_favorite_list = jsonfile.get('Activity', {}).get('Like List', {}).get('ItemFavoriteList', [])
+        activity_root = jsonfile.get("Activity") or jsonfile.get("Your Activity") or {}
+        item_favorite_list = activity_root.get('Like List', {}).get('ItemFavoriteList', [])
 
         for idx, item in enumerate(item_favorite_list):
-            date = item.get('Date', '')
-            link = item.get('Link', '')
+            item_lower = {k.lower(): v for k, v in item.items()}
+            date = item_lower.get('date', '')
+            link = item_lower.get('link', '')
             if date and link:
                 like_list.append({'Date': date, 'Link': link})
             else:
@@ -123,16 +140,18 @@ def extract_likes(jsonfile):
 def extract_watch_history(jsonfile):
 
     watch_history_list = []
-    print('Trying to extract likes...')
+    print('Trying to extract watch history...')
 
     try:
 
+        activity_root = jsonfile.get("Activity") or jsonfile.get("Your Activity") or {}
         # Extract the "VideoList"
-        json_videos = jsonfile.get('Activity', {}).get('Video Browsing History', {}).get('VideoList', [])
+        browsing_root = activity_root.get('Video Browsing History') or activity_root.get('Watch History') or {}
+        json_videos = browsing_root.get('VideoList', []) if isinstance(browsing_root, dict) else browsing_root
 
         for idx, item in enumerate(json_videos):
-            date = item.get('Date', '')
-            link = item.get('Link', '')
+            date = item.get('Date') or item.get('date', '')
+            link = item.get('Link') or item.get('link', '')
             if date and link:
                 watch_history_list.append({'Date': date, 'Link': link})
             else:
@@ -154,11 +173,13 @@ def extract_logins(jsonfile):
 
     try:
 
-        # Extract the "VideoList"
-        json_videos = jsonfile.get('Activity', {}).get('Login History', {}).get('LoginHistoryList', [])
+        # Extract the "Logins"
+        activity_root = jsonfile.get("Activity") or jsonfile.get("Your Activity") or {}
+        json_videos = activity_root.get('Login History', {}).get('LoginHistoryList', [])
 
         for idx, item in enumerate(json_videos):
-            date = item.get('Date', '')
+            date = item.get('Date') or item.get('date', '')
+            link = item.get('Link') or item.get('link', '')
             device = item.get('DeviceModel', '')
             network = item.get('NetworkType', '')
             
@@ -226,15 +247,18 @@ def extract_video_uploads(jsonfile):
 def extract_purchases(jsonfile):
 
     gifts_list = []
-    print('Trying to extract likes...')
+    print('Trying to extract purchases...')
 
     try:
 
-        # Extract the "VideoList"
-        json_gifts = jsonfile.get('Activity', {}).get('Purchase History', {}).get('BuyGifts', [])
+        # Extract the "Purchase History"
+        activity_root = jsonfile.get("Activity") or jsonfile.get("Your Activity") or {}
+        purchase_root = activity_root.get('Purchase History', {}) or activity_root.get('Purchases', {})
+        json_gifts = activity_root.get(purchase_root).get('BuyGifts', [])
 
         for idx, item in enumerate(json_gifts):
-            date = item.get('Date', '')
+            date = item.get('Date') or item.get('date', '')
+            link = item.get('Link') or item.get('link', '')
             value = item.get('Value', '')
             if date and link:
                 gifts_list.append({'Date': date, 'Value': value})
@@ -255,14 +279,14 @@ def extract_purchases(jsonfile):
 def extract_data(path):
     print('started extracting data')
     extractors = [
-        extract_id,
         extract_likes,
         extract_watch_history,
         extract_logins,
         extract_video_uploads,
-        extract_purchases
+        extract_purchases,
+        extract_id
     ]
-
+    print(f"Extracting data from {path}")
     jsonfile = load_json(path)
     # zfile = zipfile.ZipFile(path)
     return [extractor(jsonfile) for extractor in extractors]
